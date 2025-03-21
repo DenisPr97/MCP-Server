@@ -3,14 +3,23 @@ HEAD
 # MCP Server
 
 ## Установка
-
 git clone https://github.com/yourusername/mcp_server.git
 cd mcp_server
-python3 -m venv venv
-source venv/bin/activate  # Для Linux/macOS
-venv\Scripts\activate     # Для Windows
+
+
+## Установка зависимостей 
 pip install -r requirements.txt
 
+## Активируйте ваше виртуальное окружение:
+python -m venv venv
+.\venv\Scripts\activate
+
+
+##Дополнительные установки: Убедитесь, что у вас установлены все необходимые зависимости:
+pip install jinja2 fastapi httpx
+
+
+После этого попробуйте снова запустить ваши тесты:
 ## Запуск сервера
 uvicorn server:app --reload   
 
