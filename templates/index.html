@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о городе</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; }
+        h1 { text-align: center; }
+        .info { margin-top: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        form { text-align: center; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Получить информацию</h1>
+    <form method="post">
+        <input type="text" name="city" placeholder="Введите город" required>
+        <button type="submit">Показать</button>
+    </form>
+
+    {% if data %}
+        <div class="info">
+            <h2>Погода в {{ data.weather.city }}</h2>
+            <p>Температура: {{ data.weather.temperature }}°C</p>
+            <p>Описание: {{ data.weather.description }}</p>
+
+            <h2>Курс валют</h2>
+            <p>1 USD = {{ data.exchange_rate.usd_to_rub }} RUB</p>
+
+            <h2>Новости</h2>
+            <ul>
+                {% for article in data.news %}
+                    <li><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</body>
+</html>
