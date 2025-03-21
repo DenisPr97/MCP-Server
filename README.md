@@ -12,6 +12,7 @@ pip install -r requirements.txt
 
 ## Активируйте ваше виртуальное окружение:
 python -m venv venv
+
 .\venv\Scripts\activate
 
 
