@@ -16,7 +16,7 @@ python -m venv venv
 .\venv\Scripts\activate
 
 
-## Дополнительные установки(внутри окружения): 
+## Установка зависимостей (внутри окружения): 
 pip install jinja2 
 
 pip install fastapi
@@ -36,9 +36,6 @@ pytest tests/
 
 ## После установки зависимостей запустите сервер:
 uvicorn server:app --reload
-
-## Запуск сервера
-uvicorn server:app --reload   
 
 ## Запуск клиента (во втором окне PowerShell / Bash)
 python client.py
