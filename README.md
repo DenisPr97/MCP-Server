@@ -20,7 +20,6 @@ python -m venv venv
 pip install jinja2 fastapi httpx
 
 
-После этого попробуйте снова запустить ваши тесты:
 ## Запуск сервера
 uvicorn server:app --reload   
 
