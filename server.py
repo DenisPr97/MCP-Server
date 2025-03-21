@@ -48,3 +48,22 @@ async def get_info(request: Request, city: str = Form(...)):
     news = get_news()
     data = {"weather": weather, "exchange_rate": exchange_rate, "news": news}
     return templates.TemplateResponse("index.html", {"request": request, "data": data})
+
+# Добавлен маршрут для получения погоды по городу через GET
+@app.get("/weather/{city}")
+async def get_weather_info(city: str):
+    weather = get_weather(city)
+    if weather:
+        return weather
+    return {"message": "City not found"}
+
+@app.get("/exchange_rate")
+async def get_exchange_rate_info():
+    exchange_rate = get_exchange_rate()
+    return exchange_rate
+
+@app.get("/news")
+async def get_news_info():
+    news = get_news()
+    return news
+
