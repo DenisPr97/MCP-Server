@@ -1,39 +1,56 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Информация о городе</title>
+    <title>MCP Server</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; }
-        h1 { text-align: center; }
-        .info { margin-top: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
-        form { text-align: center; margin-bottom: 20px; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh; /* Высота экрана */
+            text-align: center; /* Центрирование текста внутри элементов */
+        }
+        form, h1, h2, p, ul {
+            margin: 10px 0; /* Отступы между элементами */
+        }
+        ul {
+            list-style-type: none; /* Убираем маркеры списка */
+            padding: 0; /* Убираем отступы списка */
+        }
     </style>
 </head>
 <body>
-    <h1>Получить информацию</h1>
+    <h1>MCP Server</h1>
     <form method="post">
-        <input type="text" name="city" placeholder="Введите город" required>
-        <button type="submit">Показать</button>
+        <label for="city">Введите город:</label>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Получить данные</button>
     </form>
 
     {% if data %}
-        <div class="info">
-            <h2>Погода в {{ data.weather.city }}</h2>
+        <h2>Погода</h2>
+        {% if data.weather.temperature is defined %}
+            <p>Город: {{ data.weather.city }}</p>
             <p>Температура: {{ data.weather.temperature }}°C</p>
             <p>Описание: {{ data.weather.description }}</p>
+        {% else %}
+            <p>{{ data.weather.message }}</p>
+        {% endif %}
 
-            <h2>Курс валют</h2>
-            <p>1 USD = {{ data.exchange_rate.usd_to_rub }} RUB</p>
+        <h2>Курс доллара</h2>
+        <p>USD -> RUB: {{ data.exchange_rate.usd_to_rub }}</p>
 
-            <h2>Новости</h2>
-            <ul>
-                {% for article in data.news %}
-                    <li><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
+        <h2>Новости</h2>
+        <ul>
+        {% for article in data.news %}
+            <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Введите город, чтобы получить данные.</p>
     {% endif %}
 </body>
 </html>
