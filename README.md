@@ -3,7 +3,7 @@ HEAD
 # MCP Server
 
 ## Установка
-git clone https://github.com/yourusername/mcp_server.git
+git clone [[https://github.com/yourusername/mcp_server.git](https://github.com/DenisPr97/MCP-Server)](https://github.com/DenisPr97/MCP-Server)
 cd mcp_server
 
 
