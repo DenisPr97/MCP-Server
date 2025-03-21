@@ -19,6 +19,11 @@ python -m venv venv
 ## Дополнительные установки: Убедитесь, что у вас установлены все необходимые зависимости:
 pip install jinja2 fastapi httpx
 
+## Запуск тестов
+pytest tests/
+
+## После установки зависимостей запустите сервер:
+uvicorn server:app --reload
 
 ## Запуск сервера
 uvicorn server:app --reload   
@@ -26,13 +31,9 @@ uvicorn server:app --reload
 ## Запуск клиента
 python client.py
 
-## Запуск тестов
-pytest tests/
+
 
 ## Использование
-## После установки зависимостей запустите сервер:
-uvicorn server:app --reload
-
 ## API будет доступен по адресу:
 http://127.0.0.1:8000
 
