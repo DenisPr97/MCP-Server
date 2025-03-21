@@ -18,12 +18,19 @@ python -m venv venv
 
 ## Дополнительные установки(внутри окружения): 
 pip install jinja2 
+
 pip install fastapi
+
 pip install httpx
+
 pip install pytest
+
 pip install -r requirements.txt
+
 pip install python-multipart
+
 pip install fastapi[all]
+
 ## Запуск тестов
 pytest tests/
 
