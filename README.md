@@ -19,8 +19,6 @@ python -m venv venv
 ## Установка зависимостей (внутри окружения): 
 pip install jinja2 
 
-pip install fastapi
-
 pip install httpx
 
 pip install pytest
