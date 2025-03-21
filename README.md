@@ -1,5 +1,4 @@
 HEAD
-# MCP-Server
 
 # MCP Server
 
